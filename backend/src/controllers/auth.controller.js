@@ -25,6 +25,7 @@ export const signup = async (req, res) => {
       fullName,
       email,
       password: hashedPassword,
+      memberSince: new Date(),
     });
 
     if (newUser) {
@@ -37,6 +38,7 @@ export const signup = async (req, res) => {
         fullName: newUser.fullName,
         email: newUser.email,
         profilePic: newUser.profilePic,
+        memberSince: user.memberSince,
       });
     } else {
       res.status(400).json({ message: "Invalid user data" });
